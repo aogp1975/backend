@@ -22,7 +22,7 @@ if (!fs.existsSync(GEOJSON_FILE)) {
 }
 
 //Endpoint para la ubi y se guarda en .geojson
-app.post("/api/guardar_ubi", (req, res) => {
+app.post("guardar_ubi", (req, res) => {
   const { latitud, longitud } = req.body;
 
   if (!latitud || !longitud) {
