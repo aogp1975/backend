@@ -17,4 +17,23 @@ if (!fs.existsSync(GEOJSON_FILE)) {
   fs.writeFileSync(GEOJSON_FILE, JSON.stringify({ type: "FeatureCollection", features: [] }, null, 2)); 
 }
 
-
+//Endpoint para la ubi y se guarda en .geojson
+app.post("/guardar_ubi", (req,res) => {
+  const {latitud, longitud} = req.body;
+  
+  if (!latitud || !longitud) {
+    return res.status(400).json({ error: "Hacen falta coordenadas"});
+  }
+  
+  //Archivo actual 
+  let geojson = JSON.parse(fs.readFileSync(GEOJSON_FILE));
+  
+  //Agregar la nueva ubicación como feature
+  let nuevaUbi = {
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [longitud, latitud]
+    }
+  }
+})
