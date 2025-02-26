@@ -26,6 +26,19 @@
       "properties": {
         "timestamp": "2025-02-26T02:27:54.708Z"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.51384814313808,
+          19.29023080226834
+        ]
+      },
+      "properties": {
+        "timestamp": "2025-02-26T03:08:15.654Z"
+      }
     }
   ]
 }

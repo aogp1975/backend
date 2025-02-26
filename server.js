@@ -4,9 +4,8 @@
  */
 
 const express = require("express");
-const cors = require("cors");
 const fs = require("fs");
-
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
@@ -22,7 +21,7 @@ if (!fs.existsSync(GEOJSON_FILE)) {
 }
 
 //Endpoint para la ubi y se guarda en .geojson
-app.post("guardar_ubi", (req, res) => {
+app.post("/guardar_ubi", (req, res) => {
   const { latitud, longitud } = req.body;
 
   if (!latitud || !longitud) {
