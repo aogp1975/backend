@@ -34,6 +34,24 @@ app.post("/guardar_ubi", (req,res) => {
     geometry: {
       type: "Point",
       coordinates: [longitud, latitud]
+    },
+    properties: {
+      timestamp: new Date().toISOString()
     }
-  }
-})
+  };
+  
+  geojson.features.push(nuevaUbi);
+  
+  //Guardar el archivo actualizado
+  fs.writeFileSync(GEOJSON_FILE, JSON.stringify(geojson, null, 2));
+  
+  res.json({ mensaje: "Ubicación guardada correctamente", nuevaUbi});
+});
+
+//Archivo .geojson para Mapbox
+app.get("/stickers.geojson", (req, res) => {
+  res.sendFile(__dirname + "/" + GEOJSON_FILE);
+});
+
+//Iniciar el servidor
+const PORT = process.env.
