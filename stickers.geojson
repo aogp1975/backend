@@ -13,6 +13,32 @@
       "properties": {
         "timestamp": "2025-03-06T19:15:47.756Z"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.5830127,
+          19.1220031
+        ]
+      },
+      "properties": {
+        "timestamp": "2025-03-09T06:38:35.508Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.5830127,
+          19.1220031
+        ]
+      },
+      "properties": {
+        "timestamp": "2025-03-09T06:38:48.114Z"
+      }
     }
   ]
 }
