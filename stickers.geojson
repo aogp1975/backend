@@ -52,6 +52,32 @@
       "properties": {
         "timestamp": "2025-03-24T17:38:40.136Z"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.50182830478035,
+          19.29153400248555
+        ]
+      },
+      "properties": {
+        "timestamp": "2025-04-29T23:22:33.164Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.50225979280695,
+          19.29183664346267
+        ]
+      },
+      "properties": {
+        "timestamp": "2025-04-29T23:24:32.714Z"
+      }
     }
   ]
 }
