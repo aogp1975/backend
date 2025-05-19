@@ -94,6 +94,20 @@
         "imagen": "https://cdn.glitch.global/74cdea08-eedd-447b-b9f5-de3a59867dbf/IMG_7119.jpg?v=1747417016270"
       }
     },
+      {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.178626,
+          19.406724
+        ]
+      },
+      "properties": {
+        "timestamp": "2025-04-29T23:39:09.791Z",
+        "imagen": "https://cdn.glitch.global/74cdea08-eedd-447b-b9f5-de3a59867dbf/IMG_7536.jpg?v=1747417028264"
+      }
+    },
     {
       "type": "Feature",
       "geometry": {
