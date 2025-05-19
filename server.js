@@ -14,6 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(cors()); //permite solicitudes desde cualquier origen
 
+app.use('/uploads', express.static('uploads'));
+
 const GEOJSON_FILE = "stickers.geojson";
 
 if (!fs.existsSync(GEOJSON_FILE)) {
@@ -24,8 +26,9 @@ if (!fs.existsSync(GEOJSON_FILE)) {
 }
 
 //Endpoint para la ubi y se guarda en .geojson
-app.post("/guardar_ubi", (req, res) => {
+app.post("/guardar_todo", upload.single('imagen'), (req, res) => {
   const { latitud, longitud } = req.body;
+  const archivo = req.file;
 
   if (!latitud || !longitud) {
     return res.status(400).json({ error: "Hacen falta coordenadas" });
@@ -39,10 +42,11 @@ app.post("/guardar_ubi", (req, res) => {
     type: "Feature",
     geometry: {
       type: "Point",
-      coordinates: [longitud, latitud],
+      coordinates: [parseFloat(longitud), parseFloat(latitud)],
     },
     properties: {
       timestamp: new Date().toISOString(),
+      imagen: archivo ? `/uploads/${archivo.filename}`: null
     },
   };
 
