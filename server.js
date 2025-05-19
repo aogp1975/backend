@@ -1,7 +1,11 @@
-const express = require("express");
-const cors = require("cors");
-const fs = require("fs");
+/**
+ * This is the main Node.js server script for your project
+ * Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
+ */
 
+const express = require("express");
+const fs = require("fs");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
@@ -17,7 +21,7 @@ if (!fs.existsSync(GEOJSON_FILE)) {
 }
 
 //Endpoint para la ubi y se guarda en .geojson
-app.post("/api/guardar_ubi", (req, res) => {
+app.post("/guardar_ubi", (req, res) => {
   const { latitud, longitud } = req.body;
 
   if (!latitud || !longitud) {
@@ -54,3 +58,6 @@ app.get("/stickers.geojson", (req, res) => {
 
 //Iniciar el servidor
 const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
