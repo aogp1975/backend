@@ -5,7 +5,10 @@ const multer = require("multer");
 const path = require("path");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST'],
+}));
 
 // Configuración de almacenamiento para multer
 const storage = multer.diskStorage({
