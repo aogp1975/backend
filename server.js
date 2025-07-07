@@ -12,7 +12,9 @@ const fastify = require("fastify")({
 });
 
 // ADD FAVORITES ARRAY VARIABLE FROM TODO HERE
-
+fastify.register(require('@fastify/cors'), {
+	origin: true
+});
 
 // Setup our static files
 fastify.register(require("fastify-static"), {
