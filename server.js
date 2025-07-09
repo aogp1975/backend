@@ -12,18 +12,18 @@ const fastify = require("fastify")({
 });
 
 // ADD FAVORITES ARRAY VARIABLE FROM TODO HERE
-fastify.register(require('@fastify/cors'), {
+fastify.register(require('fastify-cors'), {
 	origin: true
 });
 
 // Setup our static files
-fastify.register(require('@fastify/static'), {
+fastify.register(require('fastify-static'), {
   root: path.join(__dirname, "public"),
   prefix: "/" // optional: default '/'
 });
 
 // fastify-formbody lets us parse incoming forms
-fastify.register(require("@fastify/formbody"));
+fastify.register(require("fastify-formbody"));
 
 // point-of-view is a templating manager for fastify
 fastify.register(require("point-of-view"), {
