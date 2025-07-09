@@ -113,6 +113,40 @@ fastify.post("/", function(request, reply) {
   // The Handlebars template will use the parameter values to update the page with the chosen color
   reply.view("/src/pages/index.hbs", params);
 });
+const fs = require("fs");
+const geojsonPath = path.join(__dirname, "public", "stickers.geojson");
+
+fastify.post("/guardar_ubi", async (request, reply) => {
+	try {
+		const {latitud, longitud, tipo} = request.body;
+		
+		//cargar el geojson
+		const data = fs.readFileSync(geojsonPath);
+		const geojson = JSON.parse(data);
+		
+		const nuevaFeature = {
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: [longitud,latitud]
+			},
+			properties: {
+				tipo: tipo,
+				imagen:""
+			}
+		};
+		
+		geojson.features.push(nuevaFeature);
+		
+		fs.writeFileSync(geojsonPath, JSON.stringify(geojson, null, 2));
+		
+		reply.send({ status: "ok", mensaje: "Ubi registrada" });
+	} catch (err) {
+		console.error(err);
+		reply.status(500).send({error: "no se guardo ubi:("});
+	}
+});
+
 
 // Run the server and report out to the logs
 const start = async () => {
