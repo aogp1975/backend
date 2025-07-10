@@ -118,7 +118,7 @@ const geojsonPath = path.join(__dirname, "public", "stickers.geojson");
 
 fastify.post("/guardar_ubi", async (request, reply) => {
 	try {
-		const {latitud, longitud, tipo} = request.body;
+		const {latitud, longitud, tip, testimonio} = request.body;
 		
 		//cargar el geojson
 		const data = fs.readFileSync(geojsonPath);
@@ -132,7 +132,7 @@ fastify.post("/guardar_ubi", async (request, reply) => {
 			},
 			properties: {
 				tipo: tipo,
-				imagen:""
+				...(testimonio ? { testimonio } : {})
 			}
 		};
 		
