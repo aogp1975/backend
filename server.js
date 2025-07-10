@@ -118,7 +118,7 @@ const geojsonPath = path.join(__dirname, "public", "stickers.geojson");
 
 fastify.post("/guardar_ubi", async (request, reply) => {
 	try {
-		const {latitud, longitud, tip, testimonio} = request.body;
+		const {latitud, longitud, tipo, testimonio} = request.body;
 		
 		//cargar el geojson
 		const data = fs.readFileSync(geojsonPath);
