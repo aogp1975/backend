@@ -89,10 +89,10 @@ fastify.get('/creageojson', async (request, reply) => {
 				type: "Feature",
 				geometry: {
 					type: "Point",
-					coordinates: [p.longitud,p.latitud]
+					coordinates: [p.lng,p.lat]
 				},
 				properties: {
-					tipo: p.tipo,
+					tipo: p.type,
 					...(p.testimonio ? { testimonio: p.testimonio } : {})
 			}
 		}))
