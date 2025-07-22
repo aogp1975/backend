@@ -62,13 +62,15 @@ fastify.post("/guardar_ubi", async (request, reply) => {
 				{lat,
 				 lng,
 				 type,
-				 testimonio:testimonio ? JSON.stringify(testimonio) : null}]);
+				 testimonio:testimonio ? JSON.stringify(testimonio) : null
+				 }]);
 		
 		if (error) {
 			reply.code(500).send({error: error.message });
 		} else {
 			reply.send({ok: true,data});
 		}	
+	}
 });
 console.log (req.body);
 
