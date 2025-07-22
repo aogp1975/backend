@@ -73,7 +73,7 @@ fastify.post("/guardar_ubi", async (request, reply) => {
 
 fastify.get('/creageojson', async (request, reply) => {
 	const {data, error} = await supabase
-		.from('puntos')
+		.from('stickerspoints')
 		.select('*');
 	if (error) {
 		reply.code(500).send({error: error.message});
