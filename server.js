@@ -59,9 +59,9 @@ fastify.post("/guardar_ubi", async (request, reply) => {
 		const {data, error} = await supabase
 			.from('stickerspoints')
 			.insert([
-				{lat
-				 lng
-				 type
+				{lat,
+				 lng,
+				 type,
 				 testimonio:testimonio ? JSON.stringify(testimonio) : null}]);
 		
 		if (error) {
