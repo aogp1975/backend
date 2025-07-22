@@ -57,7 +57,7 @@ fastify.post("/guardar_ubi", async (request, reply) => {
 		const {latitud, longitud, tipo, testimonio} = request.body;
 		
 		const {data, error} = await supabase
-			.from('puntos')
+			.from('stickerspoints')
 			.insert([
 				{latitud: lat, 
 				 longitud: lng, 
