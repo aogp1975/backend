@@ -54,15 +54,15 @@ const fs = require("fs");
 const geojsonPath = path.join(__dirname, "public", "stickers.geojson");
 
 fastify.post("/guardar_ubi", async (request, reply) => {
-		const {latitud, longitud, tipo, testimonio} = request.body;
+		const {lat, lng, type, testimonio} = request.body;
 		
 		const {data, error} = await supabase
 			.from('stickerspoints')
 			.insert([
-				{lat: latitud, 
-				 lng: longitud, 
-				 typo: tipo, 
-				 comentario:testimonio}]);
+				{lat: lat, 
+				 lng: lng, 
+				 type: type, 
+				 testimonio:testimonio}]);
 		
 		if (error) {
 			reply.code(500).send({error: error.message });
