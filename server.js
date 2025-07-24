@@ -93,7 +93,7 @@ fastify.get('/creageojson', async (request, reply) => {
 				},
 				properties: {
 					tipo: p.type,
-					...(p.testimonio ? { testimonio: p.testimonio } : {})
+					...(p.testimonio ? { testimonio: JSON.parse(p.testimonio) } : {})
 			}
 		}))
 	};
